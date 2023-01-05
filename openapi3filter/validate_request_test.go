@@ -13,9 +13,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/getkin/kin-openapi/routers"
-	"github.com/getkin/kin-openapi/routers/gorillamux"
+	"github.com/jhannah/kin-openapi/openapi3"
+	"github.com/jhannah/kin-openapi/routers"
+	"github.com/jhannah/kin-openapi/routers/gorillamux"
 )
 
 func setupTestRouter(t *testing.T, spec string) routers.Router {

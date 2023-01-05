@@ -1,6 +1,6 @@
 package openapi3filter
 
-import "github.com/getkin/kin-openapi/openapi3"
+import "github.com/jhannah/kin-openapi/openapi3"
 
 // DefaultOptions do not set an AuthenticationFunc.
 // A spec with security schemes defined will not pass validation
