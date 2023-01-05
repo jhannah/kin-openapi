@@ -1727,6 +1727,7 @@ func (schema *Schema) VisitJSONObject(value map[string]interface{}) error {
 }
 
 func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value map[string]interface{}) error {
+	fmt.Println("JAY10 visitJSONObject", value)
 	if schemaType := schema.Type; schemaType != "" && schemaType != TypeObject {
 		return schema.expectedType(settings, TypeObject)
 	}

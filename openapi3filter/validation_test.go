@@ -614,6 +614,7 @@ func TestRootSecurityRequirementsAreUsedIfNotProvidedAtTheOperationLevel(t *test
 
 					return nil
 				},
+				ExcludeResponseBody: false,
 			},
 		}
 

@@ -312,7 +312,7 @@ func TestValidator(t *testing.T) {
 			500, "server error\n",
 		},
 		strict: true,
-	}, {
+	}, { // JAY
 		name: "invalid POST response; not strict",
 		handler: validatorTestHandler{
 			postBody: `{"id": "42", "contents": {"name": "foo", "expected": 9, "actual": 10}, "extra": true}`,

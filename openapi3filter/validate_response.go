@@ -20,6 +20,7 @@ import (
 // Note: One can tune the behavior of uniqueItems: true verification
 // by registering a custom function with openapi3.RegisterArrayUniqueItemsChecker
 func ValidateResponse(ctx context.Context, input *ResponseValidationInput) error {
+	//	fmt.Println("JAY5 entering ValidateResponse()")
 	req := input.RequestValidationInput.Request
 	switch req.Method {
 	case "HEAD":
@@ -91,8 +92,10 @@ func ValidateResponse(ctx context.Context, input *ResponseValidationInput) error
 	}
 
 	content := response.Content
+	//	fmt.Println("JAY8", len(content), options.ExcludeResponseBody)
 	if len(content) == 0 || options.ExcludeResponseBody {
 		// An operation does not contains a validation schema for responses with this status code.
+		//		fmt.Println("JAY8.5 abort! Don't check the response!")
 		return nil
 	}
 
@@ -145,6 +148,7 @@ func ValidateResponse(ctx context.Context, input *ResponseValidationInput) error
 	}
 
 	// Validate data with the schema.
+	fmt.Println("JAY9 gonna VisitJSON()")
 	if err := contentType.Schema.Value.VisitJSON(value, append(opts, openapi3.VisitAsResponse())...); err != nil {
 		schemaId := getSchemaIdentifier(contentType.Schema)
 		schemaId = prependSpaceIfNeeded(schemaId)
