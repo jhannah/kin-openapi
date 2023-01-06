@@ -1829,7 +1829,7 @@ func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value 
 	sort.Strings(keys)
 	for _, k := range keys {
 		v := value[k]
-		fmt.Println("JAY32 checking key [", k, "] value [", v, "]")
+		fmt.Println("JAY32 kin-openapi checking key [", k, "] value [", v, "]")
 		if properties != nil {
 			propertyRef := properties[k]
 			if propertyRef != nil {
@@ -1854,7 +1854,9 @@ func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value 
 				continue
 			}
 		}
+		fmt.Println("JAY33 kin-openapi")
 		if allowed := schema.AdditionalProperties.Has; allowed == nil || *allowed {
+			fmt.Println("JAY34 kin-openapi [", allowed, "][", additionalProperties, "]")
 			if additionalProperties != nil {
 				if err := additionalProperties.visitJSON(settings, v); err != nil {
 					if settings.failfast {
@@ -1873,9 +1875,11 @@ func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value 
 			}
 			continue
 		}
+		fmt.Println("JAY35 kin-openapi")
 		if settings.failfast {
 			return errSchema
 		}
+		fmt.Println("JAY36 kin-openapi")
 		err := &SchemaError{
 			Value:                 value,
 			Schema:                schema,
