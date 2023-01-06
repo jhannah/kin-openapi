@@ -1727,7 +1727,14 @@ func (schema *Schema) VisitJSONObject(value map[string]interface{}) error {
 }
 
 func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value map[string]interface{}) error {
-	fmt.Println("JAY10 visitJSONObject", value)
+	if settings.asrep {
+		//fmt.Println("JAY10 visitJSONObject", value)
+		jsonSchema, _ := json.Marshal(schema)
+		fmt.Println("JAY30 kin-openapi is about to check a response, and the schema as we understand it is:", string(jsonSchema))
+	}
+	//panic("oof")
+	//	err := errors.New("throw a stack trace")
+	//	fmt.Println(err.ErrorStack())
 	if schemaType := schema.Type; schemaType != "" && schemaType != TypeObject {
 		return schema.expectedType(settings, TypeObject)
 	}
@@ -1809,6 +1816,11 @@ func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value 
 	if ref := schema.AdditionalProperties.Schema; ref != nil {
 		additionalProperties = ref.Value
 	}
+	//fmt.Println("JAY20")
+	//spew.Dump(properties)
+	//for _, k := range schema.Properties {
+	//	fmt.Println("JAY21 schema has property", k)
+	//}
 	keys := make([]string, 0, len(value))
 	for k := range value {
 		keys = append(keys, k)
@@ -1816,6 +1828,7 @@ func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value 
 	sort.Strings(keys)
 	for _, k := range keys {
 		v := value[k]
+		//fmt.Println("JAY21 checking key [", k, "] value [", v, "]")
 		if properties != nil {
 			propertyRef := properties[k]
 			if propertyRef != nil {

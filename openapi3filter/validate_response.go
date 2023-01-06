@@ -148,7 +148,7 @@ func ValidateResponse(ctx context.Context, input *ResponseValidationInput) error
 	}
 
 	// Validate data with the schema.
-	fmt.Println("JAY9 gonna VisitJSON()")
+	//fmt.Println("JAY9 gonna VisitJSON()")
 	if err := contentType.Schema.Value.VisitJSON(value, append(opts, openapi3.VisitAsResponse())...); err != nil {
 		schemaId := getSchemaIdentifier(contentType.Schema)
 		schemaId = prependSpaceIfNeeded(schemaId)

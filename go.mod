@@ -3,6 +3,7 @@ module github.com/jhannah/kin-openapi
 go 1.16
 
 require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-openapi/jsonpointer v0.19.5
 	github.com/gorilla/mux v1.8.0
 	github.com/invopop/yaml v0.1.0

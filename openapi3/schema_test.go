@@ -34,7 +34,9 @@ func testSchema(t *testing.T, example schemaExample) func(*testing.T) {
 		if serialized := example.Serialization; serialized != nil {
 			jsonSerialized, err := json.Marshal(serialized)
 			require.NoError(t, err)
-			jsonSchema, err := json.Marshal(schema)
+			//jsonSchema, err := json.Marshal(schema)
+			//fmt.Println("JAY40", string(jsonSchema))
+			//spew.Dump(jsonSchema)
 			require.NoError(t, err)
 			require.JSONEq(t, string(jsonSerialized), string(jsonSchema))
 			var dataUnserialized Schema

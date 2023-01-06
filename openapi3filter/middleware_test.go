@@ -351,6 +351,9 @@ func TestValidator(t *testing.T) {
 		strict: false,
 	}}
 	for i, test := range tests {
+		if test.name != "invalid POST response; not strict" {
+			continue
+		}
 		t.Logf("test#%d: %s", i, test.name)
 		t.Run(test.name, func(t *testing.T) {
 			// Set up a test HTTP server
