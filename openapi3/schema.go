@@ -1727,7 +1727,7 @@ func (schema *Schema) VisitJSONObject(value map[string]interface{}) error {
 }
 
 func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value map[string]interface{}) error {
-	fmt.Println("JAY30 kin-openapi welcome to visitJSONObject")
+	//fmt.Println("JAY30 kin-openapi welcome to visitJSONObject")
 	if settings.asrep {
 		//fmt.Println("JAY10 visitJSONObject", value)
 		jsonSchema, _ := json.Marshal(schema)
@@ -1829,7 +1829,7 @@ func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value 
 	sort.Strings(keys)
 	for _, k := range keys {
 		v := value[k]
-		//fmt.Println("JAY21 checking key [", k, "] value [", v, "]")
+		fmt.Println("JAY32 checking key [", k, "] value [", v, "]")
 		if properties != nil {
 			propertyRef := properties[k]
 			if propertyRef != nil {
