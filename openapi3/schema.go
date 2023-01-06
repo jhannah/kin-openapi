@@ -1727,10 +1727,11 @@ func (schema *Schema) VisitJSONObject(value map[string]interface{}) error {
 }
 
 func (schema *Schema) visitJSONObject(settings *schemaValidationSettings, value map[string]interface{}) error {
+	fmt.Println("JAY30 kin-openapi welcome to visitJSONObject")
 	if settings.asrep {
 		//fmt.Println("JAY10 visitJSONObject", value)
 		jsonSchema, _ := json.Marshal(schema)
-		fmt.Println("JAY30 kin-openapi is about to check a response, and the schema as we understand it is:", string(jsonSchema))
+		fmt.Println("JAY31 kin-openapi is about to check a response, and the schema as we understand it is:", string(jsonSchema))
 	}
 	//panic("oof")
 	//	err := errors.New("throw a stack trace")
